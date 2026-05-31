@@ -170,20 +170,19 @@
             text-decoration: underline;
         }
 
-        /* Nowy styl licznika */
-        .visitor-counter {
-            margin-bottom: 10px;
-            font-size: 0.95rem;
-            color: var(--text-muted);
+        /* Nowa, stabilna sekcja licznika iframe */
+        .counter-container {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .visitor-counter span {
-            color: var(--accent-color);
-            font-weight: bold;
-            background: rgba(69, 243, 255, 0.1);
-            padding: 2px 8px;
-            border-radius: 4px;
-            border: 1px solid rgba(69, 243, 255, 0.2);
+        .counter-container iframe {
+            border: none;
+            width: 170px;
+            height: 30px;
+            overflow: hidden;
         }
     </style>
 </head>
@@ -204,8 +203,8 @@
         <!-- KOLEJNA AKTUALIZACJA -->
         <div class="update-card">
             <div class="update-header">
-                <h2 class="update-version">Wersja 1.0.1</h2>
-                <span class="update-date">31 Maja 2026</span>
+                <div class="update-version">Wersja 1.0.1</div>
+                <div class="update-date">31 Maja 2026</div>
             </div>
             <p>Mała aktualizacja.</p>
             
@@ -220,8 +219,8 @@
         <!-- AKTUALIZACJA v1.0.0 -->
         <div class="update-card">
             <div class="update-header">
-                <h2 class="update-version">Wersja 1.0.0 (Premiera)</h2>
-                <span class="update-date">31 maja 2026</span>
+                <div class="update-version">Wersja 1.0.0 (Premiera)</div>
+                <div class="update-date">31 maja 2026</div>
             </div>
             <p>Oficjalna premiera gry! I pierwsze admin abuse.</p>
         </div>
@@ -229,21 +228,13 @@
     </div>
 
     <footer>
-        <!-- Licznik umieszczony NAD autorem -->
-        <div class="visitor-counter">
-            Odwiedziny strony: <span id="count">Ładowanie...</span>
+        <!-- Nowy licznik umieszczony stabilnie jako Iframe nad autorem -->
+        <div class="counter-container">
+            <iframe src="https://komarev.com/ghvc/?username=jaivivo&repo=Steal-A-Update-Changes&label=Odwiedziny&color=45f3ff&style=flat-square" scrolling="no"></iframe>
         </div>
         
         <p>&copy; 2026 Steal A Update-Change Log. Strona stworzona przez <a href="https://github.com/jaivivo" target="_blank">jaivivo</a></p>
     </footer>
-
-    <!-- Bezpieczny skrypt zliczający wyświetlenia bez używania zewnętrznych obrazków -->
-    <script>
-        function cb(response) {
-            document.getElementById('count').innerText = response.value;
-        }
-    </script>
-    <script async src="https://api.countapi.xyz/hit/jaivivo-steal-a-update/visits?callback=cb"></script>
 
 </body>
 </html>
