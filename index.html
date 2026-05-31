@@ -170,9 +170,20 @@
             text-decoration: underline;
         }
 
-        /* Kontener na licznik odwiedzin */
+        /* Nowy styl licznika */
         .visitor-counter {
-            margin-top: 15px;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .visitor-counter span {
+            color: var(--accent-color);
+            font-weight: bold;
+            background: rgba(69, 243, 255, 0.1);
+            padding: 2px 8px;
+            border-radius: 4px;
+            border: 1px solid rgba(69, 243, 255, 0.2);
         }
     </style>
 </head>
@@ -182,7 +193,6 @@
         <h1>Steal A <span>Update</span></h1>
         <p>Oficjalna strona z aktualizacjami w grze Steal A Update</p>
         
-        <!-- Przyciski nawigacyjne z Twoimi linkami -->
         <div class="nav-links">
             <a href="https://www.roblox.com/games/110455469367771/Steal-A-Update" target="_blank" class="nav-btn">Gra</a>
             <a href="https://discord.gg/qFCCqkKCMj" target="_blank" class="nav-btn">Discord</a>
@@ -219,13 +229,21 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 Steal A Update-Change Log. Strona stworzona przez <a href="https://github.com/jaivivo" target="_blank">jaivivo</a></p>
-        
-        <!-- Automatyczny licznik HITS skonfigurowany pod repozytorium jaivivo -->
+        <!-- Licznik umieszczony NAD autorem -->
         <div class="visitor-counter">
-            <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fjaivivo.github.io%2FSteal-A-Update-Changes&count_bg=%231F2833&title_bg=%2345F3FF&title=Odwiedziny&edge_flat=false" alt="Licznik wyświetleń"/>
+            Odwiedziny strony: <span id="count">Ładowanie...</span>
         </div>
+        
+        <p>&copy; 2026 Steal A Update-Change Log. Strona stworzona przez <a href="https://github.com/jaivivo" target="_blank">jaivivo</a></p>
     </footer>
+
+    <!-- Bezpieczny skrypt zliczający wyświetlenia bez używania zewnętrznych obrazków -->
+    <script>
+        function cb(response) {
+            document.getElementById('count').innerText = response.value;
+        }
+    </script>
+    <script async src="https://api.countapi.xyz/hit/jaivivo-steal-a-update/visits?callback=cb"></script>
 
 </body>
 </html>
