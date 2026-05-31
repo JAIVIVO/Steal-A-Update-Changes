@@ -169,24 +169,6 @@
         footer a:hover {
             text-decoration: underline;
         }
-
-        /* Nowy, bezpieczny styl tekstowego licznika */
-        .visitor-counter {
-            margin-bottom: 12px;
-            font-size: 0.95rem;
-            color: var(--text-muted);
-        }
-
-        .visitor-counter span {
-            color: var(--accent-color);
-            font-weight: bold;
-            background: rgba(69, 243, 255, 0.1);
-            padding: 3px 10px;
-            border-radius: 4px;
-            border: 1px solid rgba(69, 243, 255, 0.2);
-            margin-left: 5px;
-            display: inline-block;
-        }
     </style>
 </head>
 <body>
@@ -231,33 +213,8 @@
     </div>
 
     <footer>
-        <!-- Licznik tekstowy nad autorem -->
-        <div class="visitor-counter">
-            Odwiedziny strony: <span id="counter-value">1</span>
-        </div>
-        
         <p>&copy; 2026 Steal A Update-Change Log. Strona stworzona przez <a href="https://github.com/jaivivo" target="_blank">jaivivo</a></p>
     </footer>
-
-    <!-- Wbudowany skrypt licznika, który nigdy się nie zepsuje -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Pobieramy aktualny stan z pamięci przeglądarki
-            let visits = localStorage.getItem("steal_a_update_visits");
-            
-            if (visits === null) {
-                visits = 1;
-            } else {
-                visits = parseInt(visits) + 1;
-            }
-            
-            // Zapisujemy nową wartość
-            localStorage.setItem("steal_a_update_visits", visits);
-            
-            // Wstrzykujemy wynik do HTML
-            document.getElementById("counter-value").innerText = visits;
-        });
-    </script>
 
 </body>
 </html>
